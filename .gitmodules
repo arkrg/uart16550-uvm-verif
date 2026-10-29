@@ -1,3 +1,5 @@
 [submodule "ip"]
 	path = ip
 	url = https://github.com/arkrg/ip.git
+[submodule "ip/"]
+	url = https://github.com/arkrg/hdl-library.git
