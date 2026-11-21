@@ -2,6 +2,3 @@
 	url = https://github.com/arkrg/hdl-library.git
 [submodule "hdl-library/"]
 	url = https://github.com/arkrg/hdl-library.git
-[submodule "lib/hdl"]
-	path = lib/hdl
-	url = https://github.com/arkrg/hdl-library.git
