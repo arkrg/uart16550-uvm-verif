@@ -2,3 +2,9 @@
 	url = https://github.com/arkrg/hdl-library.git
 [submodule "hdl-library/"]
 	url = https://github.com/arkrg/hdl-library.git
+[submodule "ext/sync_fifo"]
+	path = ext/sync_fifo
+	url = https://github.com/arkrg/syncfifo-design-verif.git
+[submodule "ext/uart"]
+	path = ext/uart
+	url = https://github.com/arkrg/uart-16550-design.git
