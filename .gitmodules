@@ -8,3 +8,6 @@
 [submodule "ext/uart"]
 	path = ext/uart
 	url = https://github.com/arkrg/uart-16550-design.git
+[submodule "ext/apb_agent"]
+	path = ext/apb_agent
+	url = https://github.com/arkrg/sv-apb-agent.git
