@@ -2,4 +2,6 @@
 *bak
 dev*
 build
-
+*swp
+*.
+tb/*/*.sv
