@@ -1,0 +1,109 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sat Nov 28 19:48:12 2026
+# Process ID: 114120
+# Current directory: /home/rocket/workspaces/hdl_workspace/uart16550-uvm-verif/build/reg_test_ALWAYS
+# Command line: xsim -log xsim.log -mode tcl -source {xsim.dir/tb_top_snap/xsim_script.tcl}
+# Log file: /home/rocket/workspaces/hdl_workspace/uart16550-uvm-verif/build/reg_test_ALWAYS/xsim.log
+# Journal file: /home/rocket/workspaces/hdl_workspace/uart16550-uvm-verif/build/reg_test_ALWAYS/xsim.jou
+# Running On: JY23, OS: Linux, CPU Frequency: 2304.007 MHz, CPU Physical cores: 4, Host memory: 8242 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_top_snap/xsim_script.tcl
+# xsim {tb_top_snap} -testplusarg UVM_TESTNAME=reg_test -testplusarg REGSEQ=seq_reg_nonvol -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+----------------------------------------------------------------
+(C) 2013-2014 NVIDIA Corporation
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2007-2014 Mentor Graphics Corporation
+
+
+----------------------------------------------------------------
+
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18648) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test reg_test...
+UVM_WARNING /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(34791) @ 0: reporter [RegModel] In map 'm_regmodel.default_map' register 'm_regmodel.thr' maps to same address as register 'm_regmodel.rbr': 'h0
+UVM_WARNING /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(34791) @ 0: reporter [RegModel] In map 'm_regmodel.default_map' register 'm_regmodel.dll' maps to same address as register 'm_regmodel.rbr': 'h0
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18752) @ 0: reporter [UVMTOP] UVM testbench topology:
+---------------------------------------------------------------------
+Name                       Type                           Size  Value
+---------------------------------------------------------------------
+uvm_test_top               reg_test                       -     @343 
+  m_env                    apb_uart_env                   -     @362 
+    m_apb_agent            apb_agent                      -     @371 
+      m_driver             apb_master_driver              -     @534 
+        rsp_port           uvm_analysis_port              -     @553 
+        seq_item_port      uvm_seq_item_pull_port         -     @543 
+      m_monitor            apb_monitor                    -     @563 
+        ap                 uvm_analysis_port              -     @572 
+        rst_ap             uvm_analysis_port              -     @582 
+      m_seqr               uvm_sequencer                  -     @397 
+        rsp_export         uvm_analysis_export            -     @406 
+        seq_item_export    uvm_seq_item_pull_imp          -     @524 
+        arbitration_queue  array                          0     -    
+        lock_queue         array                          0     -    
+        num_last_reqs      integral                       32    'd1  
+        num_last_rsps      integral                       32    'd1  
+    m_reg_env              reg_env                        -     @386 
+      m_apb_predictor      uvm_reg_predictor #(apb_item)  -     @600 
+        bus_in             uvm_analysis_imp               -     @613 
+        reg_ap             uvm_analysis_port              -     @623 
+---------------------------------------------------------------------
+
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(6725) @ 0: reporter [UVM/FACTORY/PRINT] (*) Types with no associated type name will be printed as <unknown>
+
+####
+
+  seq_reg_base    seq_reg_nonvol
+  --------------  --------------
+  Requested Type  Override Type 
+
+Type Overrides:
+
+No instance overrides are registered with this factory
+
+#### Factory Configuration (*)
+
+
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO ../../ext/apb_agent/src/apb_driver.svh(23) @ 0: uvm_test_top.m_env.m_apb_agent.m_driver [DRV] Reset APB interface.
+UVM_INFO ../../tb/seq/seq_reg_nonvol.svh(68) @ 51295000: uvm_test_top.m_env.m_apb_agent.m_seqr@@m_reg_seq [RESULT] REG-02: PASS
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 51295000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 51295000: reporter [UVM/REPORT/SERVER] [UVMTOP]     1
+[UVM/RELNOTES]     1
+[UVM/FACTORY/PRINT]     1
+[UVM/COMP/NAMECHECK]     1
+[TEST_DONE]     1
+[RegModel]     2
+[RNTST]     1
+[RESULT]     1
+[NO_DPI_TSTNAME]     1
+[DRV]     1
+** Report counts by id
+UVM_FATAL :    0
+UVM_ERROR :    0
+UVM_WARNING :    2
+UVM_INFO :    9
+** Report counts by severity
+
+--- UVM Report Summary ---
+
+
+WARNING: The Functional Coverage Database has not been updated during simulation. Please recheck testbench to confirm that covergroups are being instantiated correctly and rerun simulation.
+$finish called at time : 51295 ns : File "/home/rocket/tools/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Nov 28 19:48:16 2026...

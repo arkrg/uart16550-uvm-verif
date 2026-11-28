@@ -16,7 +16,6 @@ class apb_adapter extends uvm_reg_adapter;
       pkt.pwrite = 0;
       pkt.prdata = rw.data;
     end
-    // pkt.psel  = 1'b1;
     pkt.paddr = rw.addr;
 
     `uvm_info("adapter", $sformatf(
@@ -26,17 +25,15 @@ class apb_adapter extends uvm_reg_adapter;
 
   virtual function void bus2reg(uvm_sequence_item bus_item, ref uvm_reg_bus_op rw);
     apb_item pkt;
-
     // bus_item is a base class handle of type "uvm_sequence_item" and hence does not
     // contain addr, data properties in it. Hence bus_item has to be cast into bus_pkt
     if (!$cast(pkt, bus_item)) begin
       `uvm_fatal("reg2apb_adapter", "Failed to cast bus_item to pkt")
     end
-
     rw.kind   = pkt.pwrite ? UVM_WRITE : UVM_READ;
     rw.addr   = pkt.paddr;
     rw.data   = pkt.pwrite ? pkt.pwdata : pkt.prdata;
-    rw.status = UVM_IS_OK;  // APB does not support slave response
+    rw.status = UVM_IS_OK;  // uart 16650 does not support slave response
     `uvm_info("adapter", $sformatf(
               "bus2reg : addr=0x%0h data=0x%0h kind=%s status=%s",
               rw.addr,
@@ -45,5 +42,4 @@ class apb_adapter extends uvm_reg_adapter;
               rw.status.name()
               ), UVM_DEBUG)
   endfunction
-
 endclass

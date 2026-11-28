@@ -5,9 +5,9 @@ class base_test extends uvm_test;
     super.new(name, parent);
   endfunction
 
+  string ov;
   apb_uart_env m_env;
-  apb_config   m_apb_config;
-  seq_reset    m_rst_seq;
+  apb_config m_apb_config;
 
   virtual function void set_config();
     m_apb_config.has_coverage = 0;
@@ -15,6 +15,8 @@ class base_test extends uvm_test;
   endfunction
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
+    if ($value$plusargs("REGSEQ=%s", ov))
+      uvm_factory::get().set_type_override_by_name("seq_reg_base", ov);
     m_apb_config = apb_config::type_id::create("m_apb_config");
     if (!uvm_config_db#(virtual apb_if)::get(this, "", "vif", m_apb_config.vif))
       `uvm_fatal("NOVIF", "Couldn't get virtual interface")
@@ -27,14 +29,7 @@ class base_test extends uvm_test;
     super.end_of_elaboration_phase(phase);
     uvm_top.print_topology();
     uvm_top.set_timeout(1ms);
+    uvm_factory::get().print(0);
   endfunction : end_of_elaboration_phase
-
-  virtual virtual task run_phase(uvm_phase phase);
-    phase.raise_objection(this);
-    m_rst_seq = seq_reset::type_id::create("m_rst_seq");
-    m_rst_seq.regmodel = m_env.m_reg_env.m_regmodel;
-    m_rst_seq.start(m_env.m_apb_agent.m_seqr);
-    phase.drop_objection(this);
-  endtask : run_phase
 
 endclass

@@ -14,9 +14,11 @@ module uart_datapath (
     input  logic                             uart_data_rx,
     output logic                             uart_data_tx
 );
+  wire [WIDTH_UART_DATA+1:0] _rff_data_pop;
   wire [WIDTH_UART_DATA+1:0] rff_data_push = {
     uif.flag_parity_error, uif.flag_frame_error, uif.data_rx_par
-  }, _rff_data_pop, rff_data_pop = (rff_flag_empty) ? 0 : _rff_data_pop;
+  };
+  assign rff_data_pop = (rff_flag_empty) ? 0 : _rff_data_pop;
   wire [WIDTH_UART_DATA-1:0] tff_data_pop;
   wire rff_cmd_push = uif.flag_rx_done & ~rff_flag_full;
   wire tff_cmd_pop = ~uif.flag_tx_busy;

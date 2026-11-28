@@ -5,15 +5,15 @@ module apb_uart (
 );
   logic tx_full;
   logic rx_empty;
-  wire  state_setup = ~aif.penable & aif.psel;
-  wire  state_access = aif.penable & aif.psel;
+  wire  is_setup = ~aif.penable & aif.psel;
+  wire  is_access = aif.penable & aif.psel;
   uart_16550 u_uart (
       .clk              (aif.pclk),
       .rstn             (aif.presetn),
       .reg_addr         (aif.paddr),
-      .reg_enable_access(state_access),
-      .reg_write        (state_access & aif.pwrite),
-      .reg_read         (state_access & ~aif.pwrite),
+      .reg_enable_access(is_access),
+      .reg_write        (is_access & aif.pwrite),
+      .reg_read         (is_access & ~aif.pwrite),
       .reg_data_write   (aif.pwdata),
       .reg_data_read    (aif.prdata),
 
@@ -22,8 +22,13 @@ module apb_uart (
 
   );
   always_ff @(posedge aif.pclk or negedge aif.presetn) begin
-    if (!aif.presetn) aif.pready <= 1'b0;
-    else aif.pready <= 1'b1;
+    if (!aif.presetn) begin
+      aif.pready  <= 0;
+      aif.pslverr <= 0;
+    end else begin
+      aif.pready <= 1'b1;
+    end
   end
+
 endmodule
 

@@ -6,7 +6,8 @@ package apb_uart_uvm_pkg;
   // Item
 
   // Base Sequences
-  `include "seq/seq_reset.svh"
+  `include "seq/seq_reg_base.svh"
+  `include "seq/seq_reg_nonvol.svh"
 
   // Virtual Sequencer & Virtual Sequences
 
@@ -31,4 +32,5 @@ package apb_uart_uvm_pkg;
 
   // Tests
   `include "tests/base_test.svh"
+  `include "tests/reg_test.svh"
 endpackage
